@@ -13,20 +13,16 @@ output: 'hello'
 
 var suffleString = function(input, shuffleIndices) {
 
-    let inputArray = input.split('');
-    let outputArray = [];
-
-    for(let i = 0; i < shuffleIndices.length; i++) {
-        for(let j = 0; j < input.length; j++) {
-            outputArray.push(inputArray[j]); // not sure what to do here and next
-        }
-        
+    var dictionary = {};
+    for (let i = 0; i < input.length; i++) {
+      dictionary[shuffleIndices[i]] = input[i];
     }
 
-    return outputArray;
+    var output = "";
 
-let test9_01 = suffleString('llheo', [2, 3, 0, 1, 4]);
-console.log(test9_01);
-    
+    for (let j = 0; j < shuffleIndices.length; j++) {
+      output += dictionary[j];
+    }
+    return output;
 
 };
