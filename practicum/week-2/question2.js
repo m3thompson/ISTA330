@@ -10,6 +10,26 @@ Example: input: cookies = [3, 5, 8] , extraCookies = 8
  */
 
  var canGetEqualCookies = function(cookies, extraCookies) {
-     
-    
+     let lenCookies = cookies.length; //length of the array cookies
+     let numberOfCookies = 0; //initial count of array cookies befor looping through it
+
+     for(let i of cookies) {
+             numberOfCookies = numberOfCookies + i;
+     }
+
+     if ( ((numberOfCookies + extraCookies) % lenCookies ) == 0) {
+             return 'true';
+     } else {
+             return 'false';
+     }
  };
+
+let test1 = canGetEqualCookies([3 ,5, 8], [8]);
+console.log(test1);
+
+
+ /* 
+ Pseudocode:
+ If the total of all elements of cookies + extraCookies int is divisible by the number of elements in the 
+ array with 0 remainder --> output = true, if not output = false
+ */

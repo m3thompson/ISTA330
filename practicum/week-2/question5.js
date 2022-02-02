@@ -13,5 +13,30 @@ output: 3
 
 var minimalReduction = function(n) {
 
+    let nOper = 0;
+
+    while(n != 0) {
+        while(n % 4 == 0) {
+            n = n / 4;
+            nOper++;
+        }
+        while(n % 3 == 0) {
+            n = n / 3;
+            nOper++;
+        }
+        while( (n % 4 != 0) && (n % 3 != 0) ) {
+            n = n - 1;
+            nOper++;
+        }
+    }
+
+    return nOper;
 };
 
+let test1 = minimalReduction(12);
+console.log(test1);
+
+/* 
+Pseudocode:
+for input n, while n is divisible by 4, keep
+*/
