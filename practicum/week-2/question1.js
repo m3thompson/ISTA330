@@ -14,6 +14,3 @@ var runningSum = function(input) {
    }
    return result;
 };
-
-let test1 = runningSum([5,6,1]);
-console.log(test1);

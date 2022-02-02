@@ -33,9 +33,6 @@ var minimalReduction = function(n) {
     return nOper;
 };
 
-let test1 = minimalReduction(12);
-console.log(test1);
-
 /* 
 Pseudocode:
 for input n, while n is divisible by 4, keep

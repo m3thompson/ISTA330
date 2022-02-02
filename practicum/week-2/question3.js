@@ -21,5 +21,3 @@ var numberOfOrderedPairs = function(input) {
     return orderedPairs;
 };
 
-let test1 = numberOfOrderedPairs([4, 2, 6, 9]);
-console.log(test1);

@@ -32,3 +32,5 @@ var biggerAndEven = function(input) {
     let test8_01 = biggerAndEven([23, 44, 12, 4]);
     console.log(test8_01);
 };
+
+// not working, figure out why

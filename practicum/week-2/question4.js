@@ -36,12 +36,6 @@ var howManyCommon = function(A, B) {
     return presentInBoth.length;
 };
 
-let firstParam = 'gtY';
-let secondParam = 'iTygrtg';
-let test1 = howManyCommon(firstParam, secondParam);
-console.log(test1);
-
-
 /* 
 Pseudocode:
 empty array for the same. convert both to array. Iterate through b, then iterate through a, checking if any are the same. 

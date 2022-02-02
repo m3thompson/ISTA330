@@ -33,8 +33,6 @@ var maxSumOfMins = function(input) {
        return sumOfMins;
 }
 
-let test7_01 = maxSumOfMins([4, 3, 8, 0]);
-console.log(test7_01);
 
 /*
 This was my 1st attempt at the question. 

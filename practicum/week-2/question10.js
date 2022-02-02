@@ -18,9 +18,3 @@ var maxMinusMin = function(n) {
     return difference;
  
 };
-
-let test = maxMinusMin(472);
-console.log(test);
-
-let test2 = maxMinusMin(1029);
-console.log(test2);

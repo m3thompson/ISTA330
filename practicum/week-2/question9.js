@@ -24,5 +24,4 @@ var suffleString = function(input, shuffleIndices) {
       output += dictionary[j];
     }
     return output;
-
 };
