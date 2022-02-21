@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='mydiv'> 
+
+    </div>
+    <script>
+        let mydiv = document.getElementById('mydiv');
+        let p1 = document.createElement('p');
+        p1.innerText = 'Hello World!';
+        mydiv.appendChild(p1);
+        let b1 = document.createElement('button');
+        b1.innerText = 'submit';
+        mydiv.appendChild(b1);
+        // let handleClickEvent = () => {alert('Button clicked!');} // sends an alert when the button is clicked
+        let handleClickEvent = (e) => {console.log(e.target.innerText);} // to know which event (e) triggered the button to be clicked. Can use on practicum 4 Q2
+        // if you click the button with this code, in the console 'submit' will be displayed; keep it as just '(e)' and see what happens in the console
+        // for Q2 you want to know the name of the image that was clicked, using the target you have access to the names of things
+        b1.onclick = handleClickEvent; 
+    </script>
+</body>
+</html>
