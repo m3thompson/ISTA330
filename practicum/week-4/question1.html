@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
     <div id="question">
-        Using the array flowers below, 
+        Using the array flowers below,
         display the flowers. Use the div 'flowersDiv'.
         You should display the flowers in two rows,
         each row containing 4 flowers.
@@ -26,31 +29,63 @@
            For each flower, you should show the image
            and under the image display its name.
         */
-       class Flower {
-           constructor(name, pictureName) {
-               this.name = name;
-               this.picture = pictureName;
-           }
-       }
-       let daffodil = new Flower('Daffodil', 'https://habahram.blob.core.windows.net/flowers/daffodil.jpg');
-       let cherryblossom = new Flower('Cherry blossom', 'https://habahram.blob.core.windows.net/flowers/cherryblossom.jpg');
-       let lily = new Flower('Lily', 'https://habahram.blob.core.windows.net/flowers/lily.jpg');
-       let daisy = new Flower('Daisy', 'https://habahram.blob.core.windows.net/flowers/daisy.jpg');
-       let sunflower = new Flower('Sunflower', 'https://habahram.blob.core.windows.net/flowers/sunflower.jpg');
-       let tulip = new Flower('Tulip', 'https://habahram.blob.core.windows.net/flowers/tulip.jpg');
-       let rose = new Flower('Rose', 'https://habahram.blob.core.windows.net/flowers/rose.jpg');
-       let waterlily = new Flower('Water lily', 'https://habahram.blob.core.windows.net/flowers/waterlily.jpg');
-       
-       let flowers = [
-             daffodil,
-             cherryblossom,
-             lily,
-             daisy,
-             sunflower,
-             tulip,
-             rose,
-             waterlily
-       ];
+        class Flower {
+            constructor(name, pictureName) {
+                this.name = name;
+                this.picture = pictureName;
+            }
+        }
+        let daffodil = new Flower('Daffodil', 'https://habahram.blob.core.windows.net/flowers/daffodil.jpg');
+        let cherryblossom = new Flower('Cherry blossom', 'https://habahram.blob.core.windows.net/flowers/cherryblossom.jpg');
+        let lily = new Flower('Lily', 'https://habahram.blob.core.windows.net/flowers/lily.jpg');
+        let daisy = new Flower('Daisy', 'https://habahram.blob.core.windows.net/flowers/daisy.jpg');
+        let sunflower = new Flower('Sunflower', 'https://habahram.blob.core.windows.net/flowers/sunflower.jpg');
+        let tulip = new Flower('Tulip', 'https://habahram.blob.core.windows.net/flowers/tulip.jpg');
+        let rose = new Flower('Rose', 'https://habahram.blob.core.windows.net/flowers/rose.jpg');
+        let waterlily = new Flower('Water lily', 'https://habahram.blob.core.windows.net/flowers/waterlily.jpg');
+
+        let flowers = [
+            daffodil,
+            cherryblossom,
+            lily,
+            daisy,
+            sunflower,
+            tulip,
+            rose,
+            waterlily
+        ];
+
+        var mydiv = document.getElementById("flowersDiv");
+        mydiv.classList.add("container")
+
+        var row1 = document.createElement('div');
+        row1.classList.add("row")
+
+        var row2 = document.createElement('div');
+        row2.classList.add("row")
+
+        mydiv.appendChild(row1)
+        mydiv.appendChild(row2)
+
+        for (var i = 0; i < flowers.length; i += 1) {
+            let column = document.createElement("div")
+            column.classList.add("col")
+            let pic = document.createElement('img');
+            pic.style.width = '100px'
+            pic.src = flowers[i].picture;
+            var caption = flowers[i].name
+            var p = document.createElement("p")
+            p.innerHTML = caption
+            console.log(p)
+            column.appendChild(pic);
+            column.appendChild(p)
+            if (i < 4) {
+                row1.appendChild(column)
+            } else {
+                row2.appendChild(column)
+            }
+        }
     </script>
 </body>
+
 </html>
