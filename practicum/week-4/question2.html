@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <title>Document</title>
 </head>
 
@@ -100,6 +104,67 @@
             rose,
             waterlily
         ];
+
+        initializePage(flowers);
+
+
+        function initializePage(flowers) {
+            let flowersDiv = document.getElementById("flowersDiv");
+            // set a structure
+            flowersDiv.innerHTML = "<div class='container mt-3'>\
+                                      <div id='row1' class='row'></div>\
+                                      <div id='row2' class='row'></div>\
+                                  </div>";
+
+            let row1 = document.getElementById('row1');
+            let row2 = document.getElementById('row2');
+
+            for (let i = 0; i < flowers.length; i++) {
+                let curRow = row1;
+                if (i > 3) { curRow = row2; }
+
+                // set the size and center the name position
+                let div = document.createElement('div');
+                div.setAttribute('class', 'col-sm-3 p-3');
+                div.setAttribute('style', 'text-align:center;')
+
+                // set image
+                let img = document.createElement('img');
+                let name = flowers[i].name;
+                let src = flowers[i].picture;
+                img.setAttribute('src', src);
+                img.setAttribute('class', "img-fluid");
+                img.setAttribute('alt', name);
+
+                // add onclick() to each img
+                img.addEventListener('click', (event) => {
+
+                    flowers.sort((a, b) => {
+                        let an = a.name.toUpperCase();
+                        let bn = b.name.toUpperCase();
+                        return an > bn ? 1 : an < bn ? -1 : 0;
+                    })
+
+                    while (flowers[0].name !== name) {
+                        let o = flowers.shift();
+                        flowers.push(o);
+                    }
+                    initializePage(flowers);
+                });
+
+                // set name
+                let underImg = document.createElement('div');
+                let nameNode = document.createTextNode(name);
+                underImg.appendChild(nameNode);
+
+                // add child
+                div.appendChild(img)
+                div.appendChild(underImg);
+                curRow.appendChild(div);
+            }
+        }
+
+
     </script>
 </body>
 
